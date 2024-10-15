@@ -9,6 +9,17 @@
  * where N is at most the number of symbols in the plain text.
  */
 
-char *railfence_encode(const char *plaintext, const int n_partitions);
+
+/* plaintext - buffer of text to be provided by user.
+ * plaintext_length - length in bytes of the provided string.
+ * n_partitions - number of partitions to use for cipher.
+ * ciphertext - pointer to buffer to store output of railfence_encode.
+ */
+void railfence_encode(
+    const char *plaintext,
+    const int plaintext_length,
+    const int n_partitions,
+    char *ciphertext
+);
 
 #endif
