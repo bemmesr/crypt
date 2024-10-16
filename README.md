@@ -8,14 +8,10 @@ restrictions on the scope of this project:
 may change in future as I would very much __like__ to generalize this project
 to the max, however, I would also like to get at least some functionality done.
 ## Testing
-For now tests are run by first building them with 'make tests', and then
-individually running each test in bin/test_\*. Each test executable is compiled
-from its counterpart under tests/, and each file in tests/ is a stand-alone
-file with its own main function. Running 'make tests' grabs each file in the
-test directory and compiles and links each with crypt.a. May add the creation
-of a bash script to run an report on the tests to the 'make tests' recipe in
-the near future, and may consider using a 'proper' testing framework in the far
-future (like check).
+Run 'make tests', this will compile all the test files found in test/ with the
+appropriate sources in src/. Once this is done, a file named "run\_tests.sh"
+will appear in the root project directory. The script prints nothing if all
+tests are ok.
 ## Building
 Just run 'make'. There are no dependencies besides gcc and the standard C
 libraries. Should you use a different compiler, it will probably still work as

@@ -1,4 +1,5 @@
 LIB_NAME := crypt.a
+TST_FILE := run_tests.sh
 
 SRC_DIR := src
 INC_DIR := include
@@ -28,12 +29,19 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS:%=$(INC_DIR)/%)
 
 .PHONY: tests
 tests: CFLAGS += -g
-tests: $(TSTS:%.c=$(BIN_DIR)/%)
+tests: $(TSTS:%.c=$(BIN_DIR)/%) $(TST_FILE)
+
+$(TST_FILE):
+	echo "#!/usr/bin/bash" > $@
+	echo "set -x" >> $@
+	printf "$(TSTS:%.c=./$(BIN_DIR)/%\n)" >> $@
+	echo "set +x" >> $@
+	chmod 776 $@
 
 $(BIN_DIR)/test_%: $(TST_DIR)/test_%.c $(BIN_DIR)/$(LIB_NAME)
 	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: clean
 clean:
-	rm -f $(BIN_DIR)/*.a $(OBJ_DIR)/*.o
+	rm -f $(BIN_DIR)/*.a $(OBJ_DIR)/*.o $(TST_FILE)
 
