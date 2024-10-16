@@ -5,12 +5,11 @@
 #include "railfence.h"
 
 int main() {
-    char plaintext[] = "Test string.";
+    char plaintext[] = "Hello World";
     int plaintext_length = strlen(plaintext);
     int partitions = 3;
     char ciphertext[plaintext_length + 1];
-    ciphertext[plaintext_length] = '\0';
-    char expected_ciphertext[] = "Tttne rgssi.";
+    char expected_ciphertext[] = "HlWleoodl r";
 
     railfence_encode(plaintext, plaintext_length, partitions, ciphertext);
 

@@ -27,10 +27,11 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INCS:%=$(INC_DIR)/%)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 .PHONY: tests
+tests: CFLAGS += -g
 tests: $(TSTS:%.c=$(BIN_DIR)/%)
 
 $(BIN_DIR)/test_%: $(TST_DIR)/test_%.c $(BIN_DIR)/$(LIB_NAME)
-	$(CC) $(CFLAGS) -g -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 .PHONY: clean
 clean:
