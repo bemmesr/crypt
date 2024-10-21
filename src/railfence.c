@@ -1,4 +1,4 @@
-#include "railfence.h"
+#include "include/railfence.h"
 
 void railfence_encode(
     const char *plaintext,
