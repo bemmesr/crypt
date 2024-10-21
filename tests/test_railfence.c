@@ -1,9 +1,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
-#include "railfence.h"
+#include "include/railfence.h"
 
 int TEST_NUMBER = 0;
 
@@ -21,8 +20,7 @@ int main() {
     test_railfence_encode_decode(
         "abcdefghijklmnopqrstuvwxyz",
         "afkpuzbglqvchmrwdinsxejoty",
-        5
-    );
+        5);
 
     return 0;
 }
@@ -34,7 +32,7 @@ void test_railfence_encode_decode(
 ) {
     TEST_NUMBER++;
     const int text_length = strlen(plaintext);
-    char result_buffer[text_length + 1];
+    char *result_buffer = malloc(text_length + 1);
 
     railfence_encode(plaintext, text_length, n_partitions, result_buffer);
 
@@ -43,8 +41,7 @@ void test_railfence_encode_decode(
             "%d: railfence_encode failed: expected '%s' but got '%s'\n",
             TEST_NUMBER,
             ciphertext,
-            result_buffer
-        );
+            result_buffer);
     } else {
         printf("%d: railfence_encode passed.\n", TEST_NUMBER);
     }
@@ -56,9 +53,8 @@ void test_railfence_encode_decode(
             "%d: railfence_decode failed: expected '%s' but got '%s'\n",
             TEST_NUMBER,
             plaintext,
-            result_buffer
-        );
-    } else{
+            result_buffer);
+    } else {
         printf("%d: railfence_decode passed.\n", TEST_NUMBER);
     }
 }

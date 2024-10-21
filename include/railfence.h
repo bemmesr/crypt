@@ -1,5 +1,5 @@
-#ifndef CRYPT_RAILFENCE
-#define CRYPT_RAILFENCE
+#ifndef INCLUDE_RAILFENCE_H_
+#define INCLUDE_RAILFENCE_H_
 
 /* This is a transposition cipher which divides the plain text into two
  * partitions by moving through the text in order and appending each symbol to
@@ -31,4 +31,4 @@ void railfence_decode(
     char *plaintext
 );
 
-#endif
+#endif  // INCLUDE_RAILFENCE_H_

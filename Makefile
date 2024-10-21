@@ -8,7 +8,7 @@ BIN_DIR := bin
 TST_DIR := tests
 
 CC := gcc
-CFLAGS := -I$(INC_DIR)
+CFLAGS := -I.
 
 SRCS := $(wildcard $(SRC_DIR)/*.c)
 SRCS := $(SRCS:$(SRC_DIR)/%=%)
