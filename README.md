@@ -5,7 +5,7 @@ A library of functions which both encode and decode various ciphers from
 To make this project possible and for my own sanity, there are some
 restrictions on the scope of this project:
 1. Each symbol in any cipher is assumed to take at most one char of space. This
-may change in future as I would very much __like__ to generalize this project
+may change in future as I would __like__ to generalize this project
 to the max, however, I would also like to get at least some functionality done.
 ## Testing
 Run 'make tests', this will compile all the test files found in test/ with the
@@ -25,3 +25,10 @@ simple as possible, so everything should be fairly self explanatory. If you
 need to know how a specific type of encryption works, you'll have to look it
 up. I've tried to name each file based on its encryption type's most popular
 name, so this shouldn't be hard to do.
+# Contributing
+Contribution is easy. Just fork the repo and make your changes, then send
+through your pull request. I'll probably accept any pull request that clearly
+improves this repo, as long as it's not some huge overhaul of its workflow.
+## pre-commit
+You will need pre-commit installed to properly lint and check your code as
+according to this repo's established guidelines.
