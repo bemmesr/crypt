@@ -5,6 +5,7 @@
 #include "include/railfence.h"
 
 int TEST_NUMBER = 0;
+int TEST_STATUS = 0;
 
 void test_railfence_encode_decode(
     const char *plaintext,
@@ -22,7 +23,7 @@ int main() {
         "afkpuzbglqvchmrwdinsxejoty",
         5);
 
-    return 0;
+    return TEST_STATUS;
 }
 
 void test_railfence_encode_decode(
@@ -42,6 +43,7 @@ void test_railfence_encode_decode(
             TEST_NUMBER,
             ciphertext,
             result_buffer);
+        TEST_STATUS = 1;
     } else {
         printf("%d: railfence_encode passed.\n", TEST_NUMBER);
     }
@@ -54,6 +56,7 @@ void test_railfence_encode_decode(
             TEST_NUMBER,
             plaintext,
             result_buffer);
+        TEST_STATUS = 1;
     } else {
         printf("%d: railfence_decode passed.\n", TEST_NUMBER);
     }
