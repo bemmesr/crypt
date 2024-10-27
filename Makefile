@@ -33,9 +33,11 @@ tests: $(TSTS:%.c=$(BIN_DIR)/%) $(TST_FILE)
 
 $(TST_FILE):
 	echo "#!/usr/bin/bash" > $@
+	echo "test_status=0" >> $@
 	echo "set -x" >> $@
-	printf "$(TSTS:%.c=./$(BIN_DIR)/%\n)" >> $@
+	printf "$(TSTS:%.c=if ! ./$(BIN_DIR)/%; then test_status=1; fi\n)" >> $@
 	echo "set +x" >> $@
+	echo "exit \$$test_status" >> $@
 	chmod 776 $@
 
 $(BIN_DIR)/test_%: $(TST_DIR)/test_%.c $(BIN_DIR)/$(LIB_NAME)

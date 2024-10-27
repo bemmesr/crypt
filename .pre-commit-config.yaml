@@ -14,3 +14,9 @@ repos:
     rev: 2.0.0
     hooks:
       - id: cpplint
+  - repo: local
+    hooks:
+      - id: run-tests
+        name: 'Run Tests'
+        language: script
+        entry: ./run_tests.sh
