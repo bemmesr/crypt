@@ -36,12 +36,11 @@
  * alphabet. This is also the length of the key.
  */
 int simplesub_encode(
-    const char *plaintext,
-    char *ciphertext,
-    const int n_bytes,
-    const char *key,
-    const int n_symbols
-);
+        const char *plaintext,
+        char *ciphertext,
+        const int n_bytes,
+        const char *key,
+        const int n_symbols);
 
 /* ciphertext - string containing the sequence of symbols to be decrypted.
  * plaintext - Buffer to receive encrypted text. Should be at least
@@ -54,12 +53,11 @@ int simplesub_encode(
  * alphabet. This is also the length of the key.
  */
 int simplesub_decode(
-    const char *ciphertext,
-    char *plaintext,
-    const int n_bytes,
-    const char *key,
-    const int n_symbols
-);
+        const char *ciphertext,
+        char *plaintext,
+        const int n_bytes,
+        const char *key,
+        const int n_symbols);
 
 
 #endif  // INCLUDE_SIMPLESUB_H_
