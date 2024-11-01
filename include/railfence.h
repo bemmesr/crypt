@@ -11,11 +11,11 @@
 
 
 /* plaintext - buffer of text to be provided by user.
- * plaintext_length - length in bytes of the provided string. This does NOT
- * include the null terminating character.
+ * text_length - length in bytes of the provided string. This does NOT include
+ * the null terminating character.
  * n_partitions - number of partitions to use for cipher.
  * ciphertext - pointer to buffer to store output of railfence_encode. Must be
- * at least plaintext_length + 1 bytes long.
+ * at least text_length + 1 bytes long.
  */
 void railfence_encode(
     const char *plaintext,
@@ -24,6 +24,13 @@ void railfence_encode(
     char *ciphertext
 );
 
+/* ciphertext - buffer of text to be provided by user.
+ * text_length - length in bytes of the provided string. This does NOT include
+ * the null terminating character.
+ * n_partitions - number of partitions to use for cipher.
+ * plaintext - point to buffer to store output of railfence_decode. Must be at
+ * least text_length + 1 bytes long.
+ */
 void railfence_decode(
     const char *ciphertext,
     const int text_length,
