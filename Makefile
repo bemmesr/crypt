@@ -35,7 +35,7 @@ $(TST_FILE):
 	echo "#!/usr/bin/bash" > $@
 	echo "test_status=0" >> $@
 	echo "set -x" >> $@
-	printf "$(TSTS:%.c=if ! ./$(BIN_DIR)/%; then test_status=1; fi\n)" >> $@
+	printf "if ! ./$(BIN_DIR)/%s; then test_status=1; fi\n" $(TSTS:%.c=%) >> $@
 	echo "set +x" >> $@
 	echo "exit \$$test_status" >> $@
 	chmod 776 $@
